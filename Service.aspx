@@ -2,7 +2,7 @@
     CodeFile="Service.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-     <section class="about py-lg-4 py-md-3 py-sm-3 py-3" id="about">
+    <section class="about py-lg-4 py-md-3 py-sm-3 py-3" id="about">
          <div class="container py-lg-5 py-md-5 py-sm-4 py-4">
             <div class="row agile-abt-info ">
                <div class="col-lg-6 col-md-6 w3layouts-left-side-img">
@@ -25,9 +25,9 @@
             </div>
          </div>
       </section>
-      <!--//about -->
-      <!--services-->
-      <section class="service py-lg-4 py-md-3 py-sm-3 py-3">
+    <!--//about -->
+    <!--services-->
+    <section class="service py-lg-4 py-md-3 py-sm-3 py-3">
          <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
             <div class="row agile-service-grids-all">
                <div class="col-lg-6 col-md-6 w3layouts-service-list">
@@ -73,7 +73,7 @@
             </div>
          </div>
       </section>
-      <section>
+    <section>
          <div class="ser-middle-service">
             <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
                <div class="using-ser-text">
@@ -82,111 +82,104 @@
                   </p>
                </div>
                <div class="row service-inner-agile">
-                  <div class="col-md-4 col-sm-12 ser-w3l-jst-abt">
-                     <div class="ser-back-ground p-3 text-center">
-                        <div class="ser-agile-para px-0">
-                           <h5>Repair</h5>
-                           <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-                           <div class="outs_more-buttn">
+                  <asp:Repeater ID="Repeater1" runat="server">
+                  <ItemTemplate>
+                       <div class="col-md-4 col-sm-12 ser-w3l-jst-abt">
+                           <div class="ser-back-ground p-3 text-center">
+                              <div class="ser-agile-para px-0">
+                                 <h5><%# Eval("title") %></h5>
+                                   <p class="text-center"><%# Eval("description").ToString().Length > 180 ? Eval("description").ToString().Substring(0, 180) + "...(Read More)" : Eval("description").ToString()%></p>
+                               <div class="outs_more-buttn">
                               <a href="about.aspx">Read More</a>
                            </div>
                         </div>
                      </div>
                   </div>
-                  <div class="col-md-4 col-sm-12 ser-w3l-jst-abt">
-                     <div class="ser-back-ground p-3 text-center">
-                        <div class="ser-agile-para px-0">
-                           <h5>Appraisal</h5>
-                           <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-                           <div class="outs_more-buttn">
-                              <a href="about.aspx">Read More</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-4 col-sm-12 ser-w3l-jst-abt">
-                     <div class="ser-back-ground p-3 text-center">
-                        <div class="ser-agile-para px-0">
-                           <h5>Cleaning</h5>
-                           <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-                           <div class="outs_more-buttn">
-                              <a href="about.aspx">Read More</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                  </ItemTemplate>
+                  </asp:Repeater>
                </div>
             </div>
          </div>
       </section>
-      <!--//services-->
-      <!-- Modal 1-->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog" role="document">
+    <!--//services-->
+    <!-- Modal 1-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body">
-                  <div class="register-form">
-                     <form action="#" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Sign In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="register-form">
+                        <form action="#" method="post">
                         <div class="fields-grid">
-                           <div class="styled-input">
-                              <input type="text" placeholder="Your Name" name="Your Name" required="">
-                           </div>
-                           <div class="styled-input">
-                              <input type="email" placeholder="Your Email" name="Your Email" required="">
-                           </div>
-                           <div class="styled-input">
-                              <input type="password" placeholder="password" name="password" required="">
-                           </div>
-                           <button type="submit" class="btn-block mb-3">Sign In</button>
+                            <div class="styled-input">
+                                <input type="text" placeholder="Your Name" name="Your Name" required="">
+                            </div>
+                            <div class="styled-input">
+                                <input type="email" placeholder="Your Email" name="Your Email" required="">
+                            </div>
+                            <div class="styled-input">
+                                <input type="password" placeholder="password" name="password" required="">
+                            </div>
+                            <button type="submit" class="btn-block mb-3">
+                                Sign In</button>
                         </div>
-                     </form>
-                  </div>
-               </div>
-               <div class="modal-footer">
-                  <div class="sing-up-jeweler">
-                     <a href="#" class="text-left" data-toggle="modal" data-target="#myModal3"> Don't Have an Account...?</a>
-                  </div>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="sing-up-jeweler">
+                        <a href="#" class="text-left" data-toggle="modal" data-target="#myModal3">Don't Have
+                            an Account...?</a>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close</button>
+                </div>
             </div>
-         </div>
-      </div>
-      <!-- //Modal 1-->
-      <!-- Modal2 -->
-      <div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
-         <div class="modal-dialog">
+        </div>
+    </div>
+    <!-- //Modal 1-->
+    <!-- Modal2 -->
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-               <div class="modal-header_w3layouts_agile">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <div class="signin-form profile">
-                     <div class="register-form">
-                        <h3 class="sign">Sign Up</h3>
-                        <div class="login-form">
-                           <form action="#" method="post">
-                              <input type="text" name="name" placeholder="Name" required="">
-                              <input type="email" name="email" placeholder="Email" required="">
-                              <input type="password" name="password" placeholder="Password" id="password" required="">
-                              <input type="password" placeholder="Confirm Password" id="confirm_password" required>
-                              <button type="submit" class="btn-block mb-3">Sign Up</button>
-                           </form>
+                <div class="modal-header_w3layouts_agile">
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;</button>
+                    <div class="signin-form profile">
+                        <div class="register-form">
+                            <h3 class="sign">
+                                Sign Up</h3>
+                            <div class="login-form">
+                                <form action="#" method="post">
+                                <input type="text" name="name" placeholder="Name" required="">
+                                <input type="email" name="email" placeholder="Email" required="">
+                                <input type="password" name="password" placeholder="Password" id="password" required="">
+                                <input type="password" placeholder="Confirm Password" id="confirm_password" required>
+                                <button type="submit" class="btn-block mb-3">
+                                    Sign Up</button>
+                                </form>
+                            </div>
                         </div>
-                     </div>
-                     <div class="clearfix"></div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                     <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-               </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Close</button>
+                        <button type="button" class="btn btn-primary">
+                            Save changes</button>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-      <!-- //Modal2 -->
+        </div>
+    </div>
+    <!-- //Modal2 -->
 </asp:Content>
